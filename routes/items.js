@@ -1,12 +1,10 @@
 const express = require('express');
-const cors = require('cors');
 const router = express.Router();
 const { partners } = require('../models/index');
 
-router.use(cors());
 
 // Rota para criar um novo parceiro
-router.post('/createPartnears',cors(), async (req, res) => {
+router.post('/createPartnears', async (req, res) => {
     try {
         const { nome, email, telefone } = req.body;
         await partners.create({ nome, email, telefone });
@@ -17,7 +15,7 @@ router.post('/createPartnears',cors(), async (req, res) => {
 });
 
 // Rota para obter todos os parceiros
-router.get('/',cors(), async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const allPartners = await partners.findAll();
         res.json(allPartners);

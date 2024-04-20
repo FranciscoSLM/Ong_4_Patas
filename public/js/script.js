@@ -15,7 +15,7 @@ const app = function(){
     $('#submit-newsletter').on('click',function(){
         console.log('submit-newsletter');
         $.ajax({
-            url:"localhost:3000/submitemail",
+            url:"http://localhost:3000/submitemail",
             method:"POST",
             data:{ email: $('#submit-newsletter').val()},
             success: function(response) {
@@ -36,7 +36,7 @@ const app = function(){
     $('#submit-message').on('click',function(){
         console.log('submit-message');
         $.ajax({
-            url:"localhost:3000/submitmessage",
+            url:"http://localhost:3000/createPartnears",
             method:"POST",
             data:{ email: $('#Email').val(),
                    name : $('#Name').val(),
@@ -56,7 +56,7 @@ const app = function(){
                 error: function(xhr, status, error) {
                     // Exibe uma mensagem de erro se ocorrer um problema durante o envio
                     alert('Ocorreu um erro ao tentar enviar a mensagem. Por favor, tente novamente mais tarde.');
-                    console.error(error);
+                    console.log(xhr);
                 }
         })
     });
